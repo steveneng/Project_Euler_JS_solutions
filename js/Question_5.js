@@ -2,20 +2,19 @@
 //
 // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-var div= function(n){
-  var array=[];
-  for(i=1; i<21; i++){
-    if(n%i===0){
-      array.push(i);
-    }
-    else{
-      return false;
+var cM= function(x){
+  for(i=1; i<x; i++){
+    if(x%i===0){
+      x/=i;
     }
   }
-  if(array.length===20){
-    return n
-  }
-};
+  return x
+}
 
+var g=1;
 
-div(232792560);
+for(n=1; n<21; n++){
+  if(g%n!==0){
+  g=g*cM(n);}
+  console.log(cM(n),n,g)
+}
